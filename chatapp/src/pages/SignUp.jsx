@@ -1,4 +1,7 @@
 import React from "react"
+import { Link } from "react-router-dom";
+import SignIn from "./SignIn";
+
 import chatboxlogo from "../Images/ChatBox.png"
 
 function SignUp() {
@@ -18,7 +21,7 @@ function SignUp() {
                         <input type="password" placeholder="Enter your Password" className="p-3 w-full border border-gray-400 rounded-xl bg-primary" />
                         <button className=" bg-accent w-full p-3 rounded-xl text-primary font-bold">Sign Up</button>
                         <p>Already have an account?
-                            <span className=" text-accent underline cursor-pointer font-bold"> Sign In here</span></p>
+                            <span className=" text-accent underline cursor-pointer font-bold">Sign In here</span></p>
                     </form>
                 </div>
             </div>
