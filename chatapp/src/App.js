@@ -1,8 +1,10 @@
-import "./App.css";
-import Login from "../src/pages/Login";
+import "./input.css";
+import Home from "./pages/Home";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
 
 function App() {
-  return <Login />;
+  return <SignIn />;
 }
 
 export default App;
