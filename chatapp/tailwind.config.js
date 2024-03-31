@@ -8,6 +8,10 @@ module.exports = {
         secondary: "#313638",
         accent: "#83c9f4",
       },
+
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+      },
     },
   },
   plugins: [],
