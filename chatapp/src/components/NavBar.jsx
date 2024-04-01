@@ -6,8 +6,8 @@ function NavBar (){
     return(
     <div className="flex justify-between w-full h-full border-b-2 border-gray-100">
         {/* Left side of the navigation bar */}
-        <div className="flex items-center h-full w-full px-10">
-            <img className="h-full" src={chatboxlogo} alt="chatBox Logo" />
+        <div className="flex items-center w-full px-10">
+            <img className="" src={chatboxlogo} alt="chatBox Logo" />
         </div>
 
         {/* Right side of the navigation bar */}

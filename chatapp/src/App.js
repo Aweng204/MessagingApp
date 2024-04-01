@@ -7,7 +7,7 @@ import SignUp from "./pages/SignUp";
 import NavBar from "./components/NavBar";
 
 function App() {
-  return <Home />;
+  return <SignUp />;
 }
 
 export default App;

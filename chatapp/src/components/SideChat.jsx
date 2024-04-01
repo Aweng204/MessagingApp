@@ -6,21 +6,28 @@ function SideChat(){
         // SideChat Total
         <div className="flex flex-col w-full h-full">
             {/* Input - Searchbox */}
-            <div className="w-full border-b border-gray-300">
-                <input className="w-full p-5 text-lg font-poppins" type="text" placeholder="Search..." />
+            <div className="w-full h-fit">
+                <input className="w-full p-5 font-poppins border bg-primary" type="text" placeholder="Search..."/>
+            </div>
+
+            {/* Recent Chats */}
+            <div className="w-full h-[90vh] overflow-y-scroll">
+                <RecentChat />
+                <RecentChat />
+                <RecentChat />
+                <RecentChat />
+                <RecentChat />
+                <RecentChat />
+                <RecentChat />
+                <RecentChat />
+                <RecentChat />
+                <RecentChat />
+                <RecentChat />
+                <RecentChat />
+                <RecentChat />
             </div>
             
-            {/* Recent Chat */}
-            <div className="flex flex-col w-full h-full border bg-primary overflow-scroll">
-                <RecentChat />
-                <RecentChat />
-                <RecentChat />
-                <RecentChat />
-                <RecentChat />
-                <RecentChat />
-                <RecentChat />
-
-            </div>
+            
         </div>
     );
 }

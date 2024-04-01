@@ -8,25 +8,25 @@ function SideBar(){
     return(
         <div className="h-full flex flex-col gap-2 text-xl">
             {/* Message Tab */}
-            <div className="flex gap-5 p-5 w-full h-fit text-secondary cursor-pointer">
+            <div className="hover:bg-accent hover:duration-200 hover:text-primary flex gap-5 p-5 w-full h-fit text-secondary cursor-pointer">
                 <MessageIcon />
                 <p>Messages</p>
             </div>
 
             {/* Contact Tab */}
-            <div className="flex gap-5 p-5 w-full h-fit text-secondary cursor-pointer">
+            <div className="hover:bg-accent hover:duration-200 hover:text-primary flex gap-5 p-5 w-full h-fit text-secondary cursor-pointer">
                 <ContactsIcon />
                 <p>Contact</p>
             </div>
             
             {/* Notification Tab */}
-            <div className="flex gap-5 p-5 w-full h-fit text-secondary cursor-pointer">
+            <div className="hover:bg-accent hover:duration-200 hover:text-primary flex gap-5 p-5 w-full h-fit text-secondary cursor-pointer">
                 <NotificationsIcon />
                 <p>Notification</p>
             </div>
             
             {/* Setting Tab */}
-            <div className="flex gap-5 p-5 w-full h-fit text-secondary cursor-pointer">
+            <div className="hover:bg-accent hover:duration-200 hover:text-primary flex gap-5 p-5 w-full h-fit text-secondary cursor-pointer">
                 <SettingsIcon />
                 <p>Setting</p>
             </div>
