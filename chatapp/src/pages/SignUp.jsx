@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SignIn from "./SignIn";
 import chatboxlogo from "../Images/ChatBox.png"
 
@@ -11,6 +11,9 @@ import { doc, setDoc } from "firebase/firestore";
 
 function SignUp() {
     const [error, setError] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
+
     const handleSubmit = async (e)=>{
 
         e.preventDefault()
@@ -45,6 +48,8 @@ function SignUp() {
 
             //create empty user chats on firestore
             await setDoc(doc(db, "userChats", res.user.uid), {});
+            navigate("/");
+
             } catch(error){
             setError(true);
             }
@@ -73,7 +78,7 @@ function SignUp() {
                         <button className=" bg-accent w-full p-3 rounded-xl text-primary font-bold">Sign Up</button>
                         {error && <span>Something went wrong here!</span>}
                         <p>Already have an account?
-                            <span className=" text-accent underline cursor-pointer font-bold">Sign In here</span></p>
+                            <span className=" text-accent underline cursor-pointer font-bold"><Link to="/signin"> Sign In Here</Link></span></p>
                     </form>
                 </div>
             </div>

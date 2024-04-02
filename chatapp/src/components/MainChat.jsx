@@ -1,9 +1,27 @@
-import React from "react"
+import React, { useState, useContext, useEffect } from "react"
 import ChatHeadliner from "./ChatHeadliner";
 import MessageInput from "./MessageInput";
 import MessageIndv from "./MessageIndv";
+import { ChatContext } from "../context/ChatContext";
+import { doc, onSnapshot } from "firebase/firestore";
+import { db } from "../firebase";
 
 function MainChat(){
+    const [ messages, setMessages ] = useState([])
+    const {data } = useContext(ChatContext)
+
+    useEffect(() => {
+        const unSub = onSnapshot(doc(db, "chats", data.chatId), (doc) => {
+            doc.exists() && setMessages (doc.data().messages)
+        })
+
+        return ()=>{
+            unSub()
+        }
+    }, [data.chatId])
+
+    console.log(messages)
+
     return(
         // Main ChatBox!
         <div className="flex flex-col justify-between w-full h-full">
@@ -15,18 +33,9 @@ function MainChat(){
             {/* Main box exchanging messages */}
             <div className="w-full h-[68vh]">
                 <div className="h-full overflow-y-scroll">
-                    <MessageIndv />
-                    <MessageIndv />
-                    <MessageIndv />
-                    <MessageIndv />
-                    <MessageIndv />
-                    <MessageIndv />
-                    <MessageIndv />
-                    <MessageIndv />
-                    <MessageIndv />
-                    <MessageIndv />
-                    <MessageIndv />
-                    <MessageIndv />
+                    {messages.map((m) => (
+                        <MessageIndv message={m} />
+                    ))}
                 </div>
                 
             </div>

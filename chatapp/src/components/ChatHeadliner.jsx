@@ -1,22 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import recentprof from "../Images/avataraccount.jpeg"
 import Settings from "@mui/icons-material/Settings";
 import SearchIcon from '@mui/icons-material/Search';
+import { ChatContext } from "../context/ChatContext";
 
 function ChatHeadliner(){
+    const { data } = useContext(ChatContext);
+
     return(
         <div className="flex justify-between h-full w-full gap-5 text-secondary">
             {/* Avatar Profile */}
             <div className="flex gap-5 px-5 py-2 w-full">
                 {/* Profile */}
-                <div className="w-[10%] h-full rounded-full overflow-hidden object-cover border border-blue-500">
-                    <img src={recentprof} alt="" />
+                <div className="w-[60px] h-[50px] rounded-full overflow-hidden object-cover">
+                    <img src={data.user?.photoURL} alt="" />
                 </div>
 
                 {/* Name of Chat */}
                 <div className="flex flex-col w-full font-poppins text-secondary">
-                    <p className="text-lg">Alwyn Chua</p>
-                    <p className="text-sm text-gray-400">Active 50 Mins Ago</p>
+                    <p className="text-lg">{data.user?.displayName}</p>
                 </div>
             </div>
 

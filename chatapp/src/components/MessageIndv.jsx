@@ -1,33 +1,44 @@
-import React from "react";
+import React, { useContext, useEffect, useRef } from "react";
+import { AuthContext } from "../context/AuthContext";
 import recentprof from "../Images/avataraccount.jpeg"
+import { ChatContext } from "../context/ChatContext";
+import "../css/styling.css"
 
-function MessageIndv(){
+function MessageIndv({message}){
+    const {currentUser} = useContext(AuthContext)
+    const {data} = useContext(ChatContext)
+
+    const ref = useRef();
+
+    useEffect(() => {
+        ref.current?.scrollIntoView({ behavior: "smooth"});
+    }, [message])
+
+    console.log(message)
     return(
         // Individual Messages sent by senders
-        <div className="flex items-center w-full h-fit p-5 gap-5">
+        <div className={`message ${message.senderId === currentUser.uid && "owner"}`}>
             {/* Image of the sender */}
-            <div className="w-[5%] h-full">
-                <div className="w-fit h-fit rounded-full overflow-hidden">
-                    <img src={recentprof} alt="" />
+            <div className="w-[50px] h-[50px] rounded-full overflow-hidden">
+                <div className="w-fit h-fit">
+                    <img src={
+                        message.senderId === currentUser.uid 
+                        ? currentUser.photoURL
+                        : data.user.photoURL
+                    } alt="" />
                 </div>
             </div>
 
             {/* Message of the sender */}
-            <div className="flex justify-between w-full h-fit gap-5">
-                <div className="w-fit h-fit p-5 bg-gray-200 rounded-xl rounded-tl-none">
-                    <p className=" text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                    Quos, quod quo. Atque, amet! Sit placeat rerum sequi debitis 
-                    expedita dolores mollitia eligendi, vero accusantium,
-                    cumque consectetur assumenda nemo atque odit! Lorem ipsum dolor sit, 
-                    amet consectetur adipisicing elit. Rerum repudiandae atque 
-                    molestias possimus eius officiis dolorem. Nihil, 
-                    sequi accusamus molestiae quam totam quae assumenda 
-                    ipsam quaerat quidem quisquam earum illo?</p>
+            <div className={`message ${message.senderId === currentUser.uid && "owner"}`}>
+                <div className={`sender ${message.senderId === currentUser.uid && "owner"}`}>
+                    <p className=" text-justify">{message.text}</p>
+                    {message.img && <img src={message.img} alt="" />}
                 </div>
 
                 {/* Timestamp */}
                 <div className="flex items-end justify-start w-[10%] p-2">
-                    <p className="font-poppins text-md text-gray-400">8:50 PM</p>
+                    <p className="font-poppins text-md text-gray-400"></p>
                 </div>
                 
             </div>        

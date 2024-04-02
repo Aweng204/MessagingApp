@@ -1,0 +1,21 @@
+.message{
+    display:flex;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+    padding: 20px;
+    gap: 20px;
+}
+
+.owner{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.sender{
+    width: fit-content;
+    height: fit-content;
+    padding: 20px;
+    background-color: #e5e7eb;
+    border-radius: 12px 12px 12px 0px;
+}
